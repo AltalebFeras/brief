@@ -3,6 +3,7 @@
 // use src\Controllers\FilmController;
 use src\Controllers\HomeController;
 use src\Services\Routing;
+
 $HomeController = new HomeController;
 // $FilmController = new FilmController;
 
@@ -14,40 +15,41 @@ $routeComposee = Routing::routeComposee($route);
 switch ($route) {
   case HOME_URL:
     if (isset($_SESSION['connecté'])) {
-      header('location: '.HOME_URL.'dashboard');
+      header('location: ' . HOME_URL . 'dashboard');
       die;
     } else {
       $HomeController->index();
     }
     break;
 
-  case HOME_URL.'connexion':
+  case HOME_URL . 'admin':
     if (isset($_SESSION['connecté'])) {
       header('location: /dashboard');
       die;
     } else {
       if ($methode === 'POST') {
-        $HomeController->auth($_POST['password']);
+        $HomeController->authAdmin($_POST['password']);
       } else {
-        $HomeController->index();
+        $HomeController->indexAdmin();
       }
     }
     break;
-//a modifier
-    case HOME_URL.'admin':
-      if (isset($_SESSION['connecté'])) {
-        header('location: /dashboard');
-        die;
+  case HOME_URL . 'connexion':
+    if (isset($_SESSION['connecté'])) {
+      header('location: /dashboard');
+      die;
+    } else {
+      if ($methode === 'POST') {
+        // I HAVE TO ADD THE TREATMENT TO THE HOME CONTROLLER FOR THE USER 
+        $HomeController->authAdmin($_POST['password']);
       } else {
-        if ($methode === 'POST') {
-          $HomeController->auth($_POST['password']);
-        } else {
-          $HomeController->index();
-        }
+        $HomeController->indexConnexion();
       }
-      break;
+    }
+    break;
 
-  case HOME_URL.'deconnexion':
+
+  case HOME_URL . 'deconnexion':
     $HomeController->quit();
     break;
 
@@ -105,7 +107,7 @@ switch ($route) {
           break;
       }
     } else {
-      header("location: ".HOME_URL);
+      header("location: " . HOME_URL);
       die;
     }
     break;

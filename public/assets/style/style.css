@@ -1,5 +1,5 @@
 body {
-  background-image: url("assets/background-image.jpeg");
+  background-image: url("/assets/images/background-image.jpeg");
 }
 form {
   max-width: 600px;
@@ -28,13 +28,14 @@ h3 {
   margin-top: 15px;
 }
 
-#SignUp{
+#SignUp {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 input[type="text"],
-input[type="email"],input[type="password"] {
+input[type="email"],
+input[type="password"] {
   width: 70%;
   height: 25px;
   padding: 10px;
@@ -83,13 +84,12 @@ label {
   background-color: rgb(67, 124, 128);
 }
 
-header {
-  background-image: url("assets/headerfestival.png");
-  background-size: 100% auto;
-  background-position: center;
-  background-repeat: no-repeat;
-  text-align: right;
-  height: 300px;
+#header {
+  background: linear-gradient(to bottom, #ffcccc 0%, #ccffcc 33%, #ccccff 66%);
+  padding: 36px;
+  display: FLEX;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 #loginAdmin {
@@ -129,7 +129,7 @@ footer {
   font-style: italic;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: rgb(90, 166, 171);
+  background: linear-gradient(to bottom, #ffcccc 0%, #ccffcc 33%, #ccccff 66%);
   padding: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -147,10 +147,10 @@ footer {
 table {
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-collapse: collapse;
   border-width: 2px;
-  border-color: #7EA8F8;
+  border-color: #7ea8f8;
   border-style: solid;
   color: #000000;
 }
@@ -163,7 +163,8 @@ table th {
 
 table thead {
   background-color: rgb(90, 166, 171);
-}  body {
+}
+body {
   text-align: center;
   border: 1px solid black;
   padding: 30px;
@@ -177,5 +178,5 @@ button {
 
 #logoAdm {
   width: 30px;
-  height: 30px
+  height: 30px;
 }
