@@ -33,6 +33,19 @@ switch ($route) {
       }
     }
     break;
+//a modifier
+    case HOME_URL.'admin':
+      if (isset($_SESSION['connecté'])) {
+        header('location: /dashboard');
+        die;
+      } else {
+        if ($methode === 'POST') {
+          $HomeController->auth($_POST['password']);
+        } else {
+          $HomeController->index();
+        }
+      }
+      break;
 
   case HOME_URL.'deconnexion':
     $HomeController->quit();
