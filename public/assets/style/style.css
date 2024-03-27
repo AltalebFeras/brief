@@ -1,8 +1,7 @@
 body {
   background-image: url("/assets/images/background-image.jpeg");
-  background-repeat: no-repeat;
   border: 1px solid black;
-  padding: 30px;
+  padding: 30px
 }
 form {
   max-width: 600px;
@@ -27,7 +26,9 @@ legend {
   font-weight: bold;
 }
 
-
+h3 {
+  margin-top: 15px;
+}
 
 input:hover,
 a:hover {
@@ -57,28 +58,39 @@ input:user-invalid + span::before {
   flex-direction: column;
   align-items: flex-start;
 }
-
-.logo {
-  width: 200px;
-  height: 38px;
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 70%;
+  height: 25px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
 }
 
-input[type="number"],
-input[type="email"],
-input[type="password" i],
-input[type="text"] {
-  padding: 0.5rem;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  width: 200px;
+input[type="radio"] {
+  position: relative;
+  top: 20px;
+  left: 500px;
+}
+
+/* input[type="checkbox"], input[type="radio"] {
+  position: RELATIVE;
+  top: 26px;
+  left: -25%;
+} */
+
+input[type="number"] {
+  width: 100px;
+  height: 15px;
 }
 
 label {
+  display: block;
   margin-bottom: 5px;
 }
 
-/* .bouton {
+.bouton {
   width: 100px;
   background-color: rgb(90, 166, 171);
   text-align: center;
@@ -87,7 +99,7 @@ label {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-} */
+}
 #btnReserver {
   width: 23%;
   font-size: large;
@@ -117,7 +129,7 @@ label {
   justify-content: space-evenly;
   align-items: center;
   width: 120px;
-  height: 41px;
+  height: 40px;
   border-radius: 5px;
   z-index: 99;
   color: black;
@@ -132,6 +144,14 @@ label {
 a {
   text-decoration: none;
   color: black;
+}
+
+#formSignIn{
+  margin-top: 10rem;
+}
+.main {
+  /* height: calc(100vh - 284px); */
+  padding-top: 10rem;
 }
 
 footer {
@@ -187,10 +207,4 @@ button {
 #logoAdm {
   width: 30px;
   height: 30px;
-}
-
-@media screen and (max-width: 570px) {
-  .logo {
-    display: none;
-  }
 }

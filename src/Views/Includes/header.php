@@ -26,12 +26,9 @@
 
   <div id="header">
     <?php if (isset($_SESSION['connecté'])) { ?>
-      <a href="deconnexion" class="btn btn-info" >Déconnexion</a>
+      <a href="deconnexion">Déconnexion</a>
     <?php } else { ?>
-      <a   href="connexion" class="btn btn-info">Connexion</a>
-
-        <img src="/assets/images/logo.png" class="logo" alt="Vercors Music Festival">
-
-      <a   href="admin" class="btn btn-info">Admin</a>
+      <a class="bouton" href="connexion">Connexion</a>
+      <a class="bouton" href="admin">Admin</a>
     <?php } ?>
   </div>
