@@ -1,8 +1,6 @@
 <?php
-include_once __DIR__ . '../Includes/header.php';
 
 ?>
-
 <form action="" id="inscription" method="POST">
   <fieldset id="reservation">
     <legend>Réservation</legend>
