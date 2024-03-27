@@ -22,20 +22,6 @@ include_once __DIR__ . '/Includes/header.php';
     </form>
 </div>
 
-<!--     <header>
-        <button id=loginAdmin><a href="/login-admin.php">
-            <img src="assets/logoadmin.png" alt="Logo Admin" id="logoAdmin"> Admin
-        </a></button>
-    </header> -->
-
-
-SDFGTST
-=======
-    blblbl
-    aaaaaaaaaaaaaaa
-FERAS
-
-
 <?php
 include_once __DIR__ . '/Includes/footer.php';
 ?>
