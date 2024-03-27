@@ -35,7 +35,7 @@ include_once __DIR__ . '/Includes/header.php';
 
       <!-- Si case cochée, afficher le choix des jours -->
       <section id="pass2joursDate" style="display: none;">
-        <div> 
+        <div>
           <input type="radio" name="choixJour2" id="choixJour12" value="choixjour12" checked>
           <label for="choixJour12">Pass pour deux journées du 01/07 au 02/07</label>
         </div>
@@ -59,11 +59,11 @@ include_once __DIR__ . '/Includes/header.php';
           <input type="radio" name="choixJourReduit" id="choixJour1reduit" value="choixJour1reduit" checked>
           <label for="choixJour1reduit">Pass pour la journée du 01/07</label>
         </div>
-        <div> 
+        <div>
           <input type="radio" name="choixJourReduit" id="choixJour2reduit" value="choixJour2reduit">
           <label for="choixJour2reduit">Pass pour la journée du 02/07</label>
         </div>
-        <div> 
+        <div>
           <input type="radio" name="choixJourReduit" id="choixJour3reduit" value="choixJour3reduit">
           <label for="choixJour3reduit">Pass pour la journée du 03/07</label>
         </div>
@@ -74,10 +74,14 @@ include_once __DIR__ . '/Includes/header.php';
       <label for="pass2joursreduit">Pass 2 jours : 50€</label>
 
       <section id="pass2joursDateReduit" style="display: none;">
-        <input type="radio" name="choixJour2Reduit" id="choixJour12reduit" value="choixJour12reduit" checked>
-        <label for="choixJour12reduit">Pass pour deux journées du 01/07 au 02/07</label>
-        <input type="radio" name="choixJour2Reduit" id="choixJour23reduit" value="choixJour23reduit">
-        <label for="choixJour23reduit">Pass pour deux journées du 02/07 au 03/07</label>
+        <div>
+          <input type="radio" name="choixJour2Reduit" id="choixJour12reduit" value="choixJour12reduit" checked>
+          <label for="choixJour12reduit">Pass pour deux journées du 01/07 au 02/07</label>
+        </div>
+        <div>
+          <input type="radio" name="choixJour2Reduit" id="choixJour23reduit" value="choixJour23reduit">
+          <label for="choixJour23reduit">Pass pour deux journées du 02/07 au 03/07</label>
+        </div>
       </section>
 
       <input type="radio" name="choixPassReduit" id="pass3joursreduit" value="pass3joursreduit">
@@ -153,3 +157,7 @@ include_once __DIR__ . '/Includes/header.php';
     <input type="submit" name="soumission" class="bouton" id="btnReserver" value="Réserver">
   </fieldset>
 </form>
+
+<?php
+include_once __DIR__ . '/Includes/footer.php';
+?>

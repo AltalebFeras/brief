@@ -1,8 +1,9 @@
 body {
-  background-image: url("/assets/images/background-image.jpeg");
+  background: linear-gradient(to right, #0b99d5, #0bc1c9, #a5d985, #c3975b);
   background-repeat: no-repeat;
   border: 1px solid black;
   padding: 30px;
+  max-width: 1440px;
 }
 form {
   max-width: 600px;
@@ -27,8 +28,12 @@ legend {
   font-weight: bold;
 }
 
-
-
+#pass1jourDate,
+#pass2joursDate,
+#pass1jourDateReduit,
+#pass2joursDateReduit {
+  padding: 1rem;
+}
 input:hover,
 a:hover {
   background-color: #ffcccc;
@@ -70,79 +75,39 @@ input[type="text"] {
   padding: 0.5rem;
   border: 2px solid #ccc;
   border-radius: 5px;
-  font-size: 16px;
-  width: 200px;
+  font-size: 1rem;
+  max-width: 20rem;
+  margin-bottom: 10px;
 }
-
 label {
-  margin-bottom: 5px;
+  margin-bottom: 0.2rem;
+  margin-right: .2rem;
 }
-
-/* .bouton {
-  width: 100px;
-  background-color: rgb(90, 166, 171);
-  text-align: center;
-  color: #fff;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-} */
 #btnReserver {
   width: 23%;
   font-size: large;
 }
 
-.bouton:hover {
-  background-color: rgb(67, 124, 128);
-}
-
 #header {
-  background: linear-gradient(to bottom, #ffcccc 0%, #ccffcc 33%, #ccccff 66%);
+  background: linear-gradient(to left, #ffcccc 0%, #ccffcc 33%, #ccccff 66%);
   padding: 36px;
+  max-width: 1440px;
   display: FLEX;
   flex-direction: row;
   justify-content: space-between;
 }
-
-#loginAdmin {
-  position: fixed;
-  cursor: pointer;
-  top: 20px;
-  right: 20px;
-  background-color: white;
-  border: 1px solid black;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 120px;
-  height: 41px;
-  border-radius: 5px;
-  z-index: 99;
-  color: black;
-  font-size: 18px;
-  padding: 0;
-}
-
-#logoAdmin {
-  width: 20px;
-  height: 20px;
-}
 a {
   text-decoration: none;
-  color: black;
+  color: rgb(163, 23, 23);
 }
 
 footer {
+  max-width: 1440px;
   margin-top: 15px;
   text-align: center;
   font-size: 0.8em;
   color: #01020d;
-  font-style: italic;
-  font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(to bottom, #ffcccc 0%, #ccffcc 33%, #ccccff 66%);
+  background: linear-gradient(to right, #ffcccc 0%, #ccffcc 33%, #ccccff 66%);
   padding: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -154,37 +119,6 @@ footer {
 #logoYt,
 #logoInsta,
 #logoFb {
-  width: 30px;
-  height: 30px;
-}
-table {
-  width: 100%;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #ffffff;
-  border-collapse: collapse;
-  border-width: 2px;
-  border-color: #7ea8f8;
-  border-style: solid;
-  color: #000000;
-}
-
-table td,
-table th {
-  border: 2px solid black;
-  padding: 5px;
-}
-
-table thead {
-  background-color: rgb(90, 166, 171);
-}
-
-h1,
-h3,
-button {
-  font-family: Arial;
-}
-
-#logoAdm {
   width: 30px;
   height: 30px;
 }
