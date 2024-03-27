@@ -19,6 +19,12 @@ include_once __DIR__ . '/Includes/header.php';
 
     <input type="submit" name="signUp" class="bouton" id="signUp" value="Sign up">
   </fieldset>
+
+  <!-- have to delete it  -->
+  <button id=reservation><a href="newReservation">
+      reservation
+    </a></button>
+
 </form>
 
 <?php

@@ -19,6 +19,17 @@ class HomeController
 
     $this->render("Accueil", ["erreur" => $erreur]);
   }
+  public function newReservation(): void
+  {
+    if (isset($_GET['erreur'])) {
+      $erreur = htmlspecialchars($_GET['erreur']);
+    } else {
+      $erreur = '';
+    }
+
+    $this->render("newReservation", ["erreur" => $erreur]);
+  }
+  
 
   public function indexAdmin(): void
   {

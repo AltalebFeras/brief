@@ -1,5 +1,7 @@
 body {
   background-image: url("/assets/images/background-image.jpeg");
+  border: 1px solid black;
+  padding: 30px
 }
 form {
   max-width: 600px;
@@ -51,8 +53,6 @@ input:user-invalid + span::before {
   color: red;
 }
 
-
-
 #SignUp {
   display: flex;
   flex-direction: column;
@@ -74,11 +74,11 @@ input[type="radio"] {
   left: 500px;
 }
 
-input[type="checkbox"] {
-  position: relative;
-  top: 20px;
-  left: 500px;
-}
+/* input[type="checkbox"], input[type="radio"] {
+  position: RELATIVE;
+  top: 26px;
+  left: -25%;
+} */
 
 input[type="number"] {
   width: 100px;
@@ -188,11 +188,6 @@ table th {
 
 table thead {
   background-color: rgb(90, 166, 171);
-}
-body {
-  text-align: center;
-  border: 1px solid black;
-  padding: 30px;
 }
 
 h1,
