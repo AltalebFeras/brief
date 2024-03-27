@@ -30,3 +30,10 @@ include_once __DIR__ . '/Includes/header.php';
         <input type="submit" class="btn btn-info" name="submit" value="Se connecter" class="mb-3 mx-2">
     </fieldset>
 </form>
+
+
+
+
+<?php
+include_once __DIR__ . '/Includes/footer.php';
+?>
