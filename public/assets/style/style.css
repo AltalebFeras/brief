@@ -22,9 +22,18 @@ fieldset {
   border-radius: 8px;
 }
 
+#fieldsetConnexion{
+  display: flex;
+  flex-direction: column
+}
+
 legend {
   font-size: 1.2em;
   font-weight: bold;
+}
+
+.btnInscription{
+  width: fit-content;
 }
 
 
