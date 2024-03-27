@@ -27,3 +27,16 @@ include_once __DIR__ . '/Includes/header.php';
             <img src="assets/logoadmin.png" alt="Logo Admin" id="logoAdmin"> Admin
         </a></button>
     </header> -->
+
+
+SDFGTST
+=======
+    blblbl
+    aaaaaaaaaaaaaaa
+
+
+
+<?php
+include_once __DIR__ . '/Includes/footer.php';
+?>
+

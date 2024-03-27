@@ -32,4 +32,8 @@ include_once __DIR__ . '/Includes/header.php';
 </form>
 
 
-dcsdc
+
+
+<?php
+include_once __DIR__ . '/Includes/footer.php';
+?>
