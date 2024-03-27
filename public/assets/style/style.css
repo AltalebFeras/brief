@@ -81,10 +81,13 @@ input[type="text"] {
 }
 label {
   margin-bottom: 0.2rem;
-  margin-right: .2rem;
+  margin-right: 0.2rem;
+}
+#btnPrecedent2 {
+  width: 50%;
 }
 #btnReserver {
-  width: 23%;
+  width: 40%;
   font-size: large;
 }
 
@@ -111,6 +114,11 @@ footer {
   padding: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+#coordonnees {
+  display: flex;
+  flex-direction: column;
+}
 #liensReseaux {
   display: flex;
   justify-content: center;
@@ -122,7 +130,9 @@ footer {
   width: 30px;
   height: 30px;
 }
-
+#alertBigNumber {
+  display: none;
+}
 @media screen and (max-width: 570px) {
   .logo {
     display: none;
