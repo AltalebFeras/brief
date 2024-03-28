@@ -18,7 +18,7 @@ include_once __DIR__ . '/Includes/header.php';
       <label for="pass1jour">Pass 1 jour : 40€</label>
 
       <!-- Si case cochée, afficher le choix du jour -->
-      <section id="pass1jourDate" style="display: none;">
+      <section id="pass1jourDate">
         <div>
           <input type="checkbox" name="choixJour" id="choixJour1" value="choixJour1" aria-required="true" onchange="toggleCheck(this) , toggleRadio(this)" />
           <label for="choixJour1">Pass pour la journée du 01/07</label>
@@ -35,7 +35,7 @@ include_once __DIR__ . '/Includes/header.php';
       <label for="pass2jours">Pass 2 jours : 70€</label>
 
       <!-- Si case cochée, afficher le choix des jours -->
-      <section id="pass2joursDate" style="display: none;">
+      <section id="pass2joursDate">
         <div>
           <input type="checkbox" name="choixJour2" id="choixJour12" value="choixjour12" aria-required="true" onchange="toggleCheck(this) , toggleRadio(this)" />
           <label for="choixJour12">Pass pour deux journées du 01/07 au 02/07</label>
@@ -51,11 +51,11 @@ include_once __DIR__ . '/Includes/header.php';
     </div>
 
     <!-- tarifs réduits : à n'afficher que si tarif réduit est sélectionné -->
-    <section class="tarifsReduits" id="tarifsReduits" style="display: none;">
+    <section class="tarifsReduits" id="tarifsReduits">
       <input type="radio" name="choixPassReduit" id="pass1jourreduit" value="pass1jourreduit" onclick="choixDate1jourReduit()">
       <label for="pass1jourreduit">Pass 1 jour : 25€</label>
 
-      <section id="pass1jourDateReduit" style="display: none;">
+      <section id="pass1jourDateReduit" >
         <div>
           <input type="checkbox" name="choixJourReduit" id="choixJour1reduit" value="choixJour1reduit" aria-required="true" onchange="toggleCheck(this) , toggleRadio(this)" />
           <label for="choixJour1reduit">Pass pour la journée du 01/07</label>
@@ -74,7 +74,7 @@ include_once __DIR__ . '/Includes/header.php';
       <input type="radio" name="choixPassReduit" id="pass2joursreduit" value="pass2joursreduit" onclick="choixDate2joursReduit()">
       <label for="pass2joursreduit">Pass 2 jours : 50€</label>
 
-      <section id="pass2joursDateReduit" style="display: none;">
+      <section id="pass2joursDateReduit" >
         <div>
           <input type="checkbox" name="choixJour2Reduit" id="choixJour12reduit" value="choixJour12reduit" aria-required="true" onchange="toggleCheck(this) , toggleRadio(this)" />
           <label for="choixJour12reduit">Pass pour deux journées du 01/07 au 02/07</label>
@@ -126,7 +126,7 @@ include_once __DIR__ . '/Includes/header.php';
       <option name="enfants" value="Oui" id="enfantsOui" onchange="afficherMasquerCasques()" >Oui</option>
     </select>
     <!-- Si oui, afficher : -->
-    <section id="casquesEnfants" style="display: none;">
+    <section id="casquesEnfants">
       <h4>Voulez-vous louer un casque antibruit pour enfants* (2€ / casque) ?</h4>
       <label for="nombreCasquesEnfants">Nombre de casques souhaités :</label>
       <input type="number" name="nombreCasquesEnfants" id="nombreCasquesEnfants" min="0" max="5">

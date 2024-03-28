@@ -147,6 +147,14 @@ footer {
 #alertBigNumber {
   display: none;
 }
+#pass1jourDate,#pass2joursDate,#tarifsReduits,
+#pass1jourDateReduit,#pass2joursDateReduit,
+#casquesEnfants{
+  display: none;
+}
+
+
+
 @media screen and (max-width: 570px) {
   .logo {
     display: none;
