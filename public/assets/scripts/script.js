@@ -24,8 +24,6 @@ btnSuivant1.addEventListener("click", () => {
   }
 });
 
-
-
 // Fonction pour valider la partie 1
 // Fonction pour valider la partie 1
 function validerPartie1() {
@@ -43,7 +41,6 @@ function validerPartie1() {
 
   // Check checkboxes
 
-
   // Add your validation conditions here
   let auMoinsUnPassCoche =
     // pass1jourCheckbox.checked ||
@@ -51,17 +48,17 @@ function validerPartie1() {
     pass3joursCheckbox.checked ||
     // pass1jourReduitCheckbox.checked ||
     // pass2joursReduitCheckbox.checked ||
-    pass3joursReduitCheckbox.checked||
+    pass3joursReduitCheckbox.checked ||
     choixJour1.checked ||
-    choixJour2.checked  ||
-    choixJour3.checked  ||
+    choixJour2.checked ||
+    choixJour3.checked ||
     choixJour12.checked ||
     choixJour23.checked ||
     choixJour1reduit.checked ||
     choixJour2reduit.checked ||
     choixJour3reduit.checked ||
     choixJour12reduit.checked ||
-    choixJour23reduit.checked ;
+    choixJour23reduit.checked;
 
   let nombrePlacesValide =
     parseInt(document.getElementById("nombrePlaces").value, 10) >= 1;
@@ -74,7 +71,6 @@ function validerPartie1() {
   // Return true if validation succeeds, otherwise false
   return auMoinsUnPassCoche && nombrePlacesValide;
 }
-
 
 //Gestion d'évènements pour BOUTON SUIVANT N°2
 document.addEventListener("DOMContentLoaded", function () {
@@ -90,13 +86,14 @@ document.addEventListener("DOMContentLoaded", function () {
       fieldsetReservation.style.display = "none";
       fieldsetOptions.style.display = "none";
       fieldsetCoordonnees.style.display = "flex";
-    } 
+    }
   });
 
   // Fonction pour valider la partie 1
   function validerPartie2() {
     // Ajoutez vos conditions de validation ici
-    let reponseEnfants = radioEnfantsOui.value ==="Oui" || radioEnfantsNon.value==="Non";
+    let reponseEnfants =
+      radioEnfantsOui.value === "Oui" || radioEnfantsNon.value === "Non";
     // Retourne true si la validation réussit, sinon false
     return reponseEnfants;
   }
@@ -195,9 +192,9 @@ function afficherMasquerTarifsReduits() {
   let tarifsNormauxSection = document.getElementById("tarifsNormaux");
 
   if (checkboxTarifReduit.checked) {
-    pass1jourCheckbox.checked= false;
-    pass2joursCheckbox.checked= false;
-    pass3joursCheckbox.checked = false ;
+    pass1jourCheckbox.checked = false;
+    pass2joursCheckbox.checked = false;
+    pass3joursCheckbox.checked = false;
     tarifsReduitsSection.style.display = "block";
     tarifsNormauxSection.style.display = "none";
   } else {
@@ -394,24 +391,28 @@ function toggleRadio(radio) {
     });
   }
 }
-document.getElementById("togglePassword").addEventListener("click", function() {
-  var motDePasseInput = document.getElementById("motDePasse");
-  var motDePasseVerifierInput = document.getElementById("motDePasseVerifier");
-  var togglePasswordSpan = document.getElementById("togglePassword");
+document
+  .getElementById("togglePassword")
+  .addEventListener("click", function () {
+    var motDePasseInput = document.getElementById("motDePasse");
+    var motDePasseVerifierInput = document.getElementById("motDePasseVerifier");
+    var togglePasswordSpan = document.getElementById("togglePassword");
 
-  if (motDePasseInput.type === "password") {
+    if (motDePasseInput.type === "password") {
       motDePasseInput.type = "text";
       motDePasseVerifierInput.type = "text";
       togglePasswordSpan.textContent = "Cacher le MDP";
-  } else {
+    } else {
       motDePasseInput.type = "password";
       motDePasseVerifierInput.type = "password";
       togglePasswordSpan.textContent = "Voir le MDP";
-  }
-});
+    }
+  });
 
-document.getElementById('telephone').addEventListener('input', function(event) {
-  let input = event.target.value;
-  let formattedPhoneNumber = input.replace(/[^\d+]/g,'');// Supprime tous les caractères non numériques
-  event.target.value = formattedPhoneNumber;
-});
+document
+  .getElementById("telephone")
+  .addEventListener("input", function (event) {
+    let input = event.target.value;
+    let formattedPhoneNumber = input.replace(/[^\d+]/g, ""); // Supprime tous les caractères non numériques
+    event.target.value = formattedPhoneNumber;
+  });

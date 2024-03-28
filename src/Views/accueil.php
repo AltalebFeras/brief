@@ -159,7 +159,7 @@ include_once __DIR__ . '/Includes/header.php';
     <input type="password" name="motDePasse" id="motDePasse" required>
     <label for="motDePasseVerifier">Verifier le mot de passe :</label>
     <input type="password" name="motDePasseVerifier" id="motDePasseVerifier">
-    <span class="password-toggle" id="togglePassword">👁Voir le MDP</span>
+    <span class="password-toggle mb-3" id="togglePassword">👁Voir le MDP</span>
 
 
     <label for="telephone">Téléphone :</label>

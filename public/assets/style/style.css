@@ -9,7 +9,7 @@ form {
   max-width: 600px;
   margin: 20px auto;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #fff;
+  background: linear-gradient(to left, #0b99d5, #0bc1c9, #a5d985, #c3975b);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -17,7 +17,7 @@ form {
 
 fieldset {
   border: 1px solid #ddd;
-  background-color: antiquewhite;
+  background: linear-gradient(to right, #ffcccc 0%, #ccffcc 33%, #ccccff 66%);
   padding: 15px;
   margin-bottom: 15px;
   border-radius: 8px;
@@ -46,7 +46,7 @@ legend {
 
 input:hover,
 a:hover {
-  background-color: #ffcccc;
+  background-color: #b8e9ed;
 }
 
 input:user-valid {
