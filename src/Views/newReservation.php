@@ -55,7 +55,7 @@ include_once __DIR__ . '/Includes/header.php';
       <input type="radio" name="choixPassReduit" id="pass1jourreduit" value="pass1jourreduit" onclick="choixDate1jourReduit()">
       <label for="pass1jourreduit">Pass 1 jour : 25€</label>
 
-      <section id="pass1jourDateReduit" >
+      <section id="pass1jourDateReduit">
         <div>
           <input type="checkbox" name="choixJourReduit" id="choixJour1reduit" value="choixJour1reduit" aria-required="true" onchange="toggleCheck(this) , toggleRadio(this)" />
           <label for="choixJour1reduit">Pass pour la journée du 01/07</label>
@@ -74,7 +74,7 @@ include_once __DIR__ . '/Includes/header.php';
       <input type="radio" name="choixPassReduit" id="pass2joursreduit" value="pass2joursreduit" onclick="choixDate2joursReduit()">
       <label for="pass2joursreduit">Pass 2 jours : 50€</label>
 
-      <section id="pass2joursDateReduit" >
+      <section id="pass2joursDateReduit">
         <div>
           <input type="checkbox" name="choixJour2Reduit" id="choixJour12reduit" value="choixJour12reduit" aria-required="true" onchange="toggleCheck(this) , toggleRadio(this)" />
           <label for="choixJour12reduit">Pass pour deux journées du 01/07 au 02/07</label>
@@ -123,7 +123,7 @@ include_once __DIR__ . '/Includes/header.php';
       <!-- <option name="enfants" value="Non" id="enfantsNon">Non</option>
       <option name="enfants" value="Oui" id="enfantsOui">Oui</option> -->
       <option name="enfants" value="Non" id="enfantsNon" onchange="afficherMasquerCasques()">Non</option>
-      <option name="enfants" value="Oui" id="enfantsOui" onchange="afficherMasquerCasques()" >Oui</option>
+      <option name="enfants" value="Oui" id="enfantsOui" onchange="afficherMasquerCasques()">Oui</option>
     </select>
     <!-- Si oui, afficher : -->
     <section id="casquesEnfants">
@@ -154,6 +154,14 @@ include_once __DIR__ . '/Includes/header.php';
     <input type="text" name="prenom" id="prenom" required autocomplete="given-name">
     <label for="email">Email :</label>
     <input type="email" name="email" id="email" required autocomplete="email">
+
+    <label for="motDePasse">Mot de passe :</label>
+    <input type="password" name="motDePasse" id="motDePasse" required>
+    <label for="motDePasseVerifier">Verifier le mot de passe :</label>
+    <input type="password" name="motDePasseVerifier" id="motDePasseVerifier">
+    <span class="password-toggle" id="togglePassword">👁Voir le MDP</span>
+
+
     <label for="telephone">Téléphone :</label>
     <input type="text" name="telephone" id="telephone" required autocomplete="tel">
     <label for="adressePostale">Adresse Postale :</label>

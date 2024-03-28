@@ -23,9 +23,9 @@ fieldset {
   border-radius: 8px;
 }
 
-#fieldsetConnexion{
+#fieldsetConnexion {
   display: flex;
-  flex-direction: column
+  flex-direction: column;
 }
 
 legend {
@@ -33,13 +33,9 @@ legend {
   font-weight: bold;
 }
 
-
-.btnInscription{
+.btnInscription {
   width: fit-content;
 }
-
-
-
 
 #pass1jourDate,
 #pass2joursDate,
@@ -147,13 +143,14 @@ footer {
 #alertBigNumber {
   display: none;
 }
-#pass1jourDate,#pass2joursDate,#tarifsReduits,
-#pass1jourDateReduit,#pass2joursDateReduit,
-#casquesEnfants{
+#pass1jourDate,
+#pass2joursDate,
+#tarifsReduits,
+#pass1jourDateReduit,
+#pass2joursDateReduit,
+#casquesEnfants {
   display: none;
 }
-
-
 
 @media screen and (max-width: 570px) {
   .logo {
