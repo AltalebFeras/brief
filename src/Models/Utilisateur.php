@@ -5,10 +5,15 @@ namespace src\Models;
 use src\Services\Hydratation;
 
 class Utilisateur {
-    private $Id, $Nom, $Prenom, $Telephone, $Adresse, $Email, $MotDePasse, $RGPD, $Role;
+    private $Id, $nom, $prenom, $telephone, $adresse, $email, $motDePasse, $RGPD, $role;
 
     use Hydratation;
 
+    public function __set($nom, $value) {
+        if (property_exists($this, $nom)) {
+            $this->$nom = $value;
+        }
+    }
 
     public function getId(): int {
         return $this->Id;
@@ -18,45 +23,45 @@ class Utilisateur {
     }
 
     public function getPrenom(): string {
-        return $this->Prenom;
+        return $this->prenom;
     }
-    public function setPrenom(string $Prenom) {
-        $this->Prenom = $Prenom;
+    public function setPrenom(string $prenom) {
+        $this->prenom = $prenom;
     }
 
     public function getNom(): string {
-        return $this->Nom;
+        return $this->nom;
     }
-    public function setNom(string $Nom) {
-        $this->Nom = $Nom;
+    public function setNom(string $nom) {
+        $this->nom = $nom;
     }
 
     public function getTelephone(): string {
-        return $this->Telephone;
+        return $this->telephone;
     }
-    public function setTelephone(string $Telephone) {
-        $this->Telephone = $Telephone;
+    public function setTelephone(string $telephone) {
+        $this->telephone = $telephone;
     }
 
     public function getAdresse(): string {
-        return $this->Adresse;
+        return $this->adresse;
     }
-    public function setAdresse(string $Adresse) {
-        $this->Adresse = $Adresse;
+    public function setAdresse(string $adresse) {
+        $this->adresse = $adresse;
     }
 
     public function getEmail(): string {
-        return $this->Email;
+        return $this->email;
     }
-    public function setEmail(string $Email) {
-        $this->Email = $Email;
+    public function setEmail(string $email) {
+        $this->Eeail = $email;
     }
 
     public function getMotDePasse(): string {
-        return $this->MotDePasse;
+        return $this->motDePasse;
     }
-    public function setMotDePasse(string $MotDePasse) {
-        $this->MotDePasse = $MotDePasse;
+    public function setMotDePasse(string $motDePasse) {
+        $this->motDePasse = $motDePasse;
     }
 
     public function getRGPD(): string {
@@ -67,9 +72,9 @@ class Utilisateur {
     }
 
     public function getRole(): string {
-        return $this->Role;
+        return $this->role;
     }
-    public function setRole(string $Role) {
-        $this->Role = $Role;
+    public function setRole(string $role) {
+        $this->role = $role;
     }
 }
