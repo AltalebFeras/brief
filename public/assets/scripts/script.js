@@ -416,3 +416,13 @@ document
     let formattedPhoneNumber = input.replace(/[^\d+]/g, ""); // Supprime tous les caractères non numériques
     event.target.value = formattedPhoneNumber;
   });
+
+  function enableCheckbox() {
+    var checkbox = document.getElementById("RGPD");
+    if (checkbox.disabled) {
+      checkbox.disabled = false;
+    }
+  }
+  
+  // Periodically check and enable the checkbox
+  setInterval(enableCheckbox, 1000); // Check every second (adjust as needed)

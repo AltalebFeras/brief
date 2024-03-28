@@ -97,7 +97,7 @@ include_once __DIR__ . '/Includes/header.php';
     </div>
 
   </fieldset>
-  <fieldset id="options">checkbox
+  <fieldset id="options">
     <h3>Réserver un emplacement de tente : </h3>
     <input type="checkbox" id="tenteNuit1" name="tenteNuit1" class="tenteNuit" value="tenteNuit1" onchange="cocherTente3nuits()">
     <label for="tenteNuit1">Pour la nuit du 01/07 (5€)</label><br>
@@ -159,13 +159,17 @@ include_once __DIR__ . '/Includes/header.php';
     <input type="password" name="motDePasse" id="motDePasse" required>
     <label for="motDePasseVerifier">Verifier le mot de passe :</label>
     <input type="password" name="motDePasseVerifier" id="motDePasseVerifier">
-    <span class="password-toggle mb-3" id="togglePassword">👁Voir le MDP</span>
+    <span class="password-toggle fw-bold mb-3" id="togglePassword">Voir le MDP</span>
 
 
     <label for="telephone">Téléphone :</label>
     <input type="text" name="telephone" id="telephone" required autocomplete="tel">
     <label for="adressePostale">Adresse Postale :</label>
     <input type="text" name="adressePostale" id="adressePostale" required autocomplete="address-line1">
+    <div class="d-flex flex-row align-items-baseline my-2">
+      <input type="checkbox" class="me-2" name="RGPD" id="RGPD" enababled>
+      <label for="RGPD">Veuillez accepter les RGPD </label>
+    </div>
     <div class="d-flex justify-content-between">
       <!-- <p class="btn btn-warning" id="btnPrecedent2">Précédent</p> -->
       <input class="btn btn-warning" id="btnPrecedent2" value="Précédent">
