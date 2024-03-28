@@ -22,27 +22,18 @@ final class Database
             echo "Erreur de connexion à la Base de Données : " . $error->getMessage();
         }
     }
-
-    /**
-     * Retourne la connexion BDD établie et l'objet PDO associé.
-     */
+    
     public function getDB(): PDO
     {
         return $this->DB;
     }
 
-    /**
-     * Initialisation de la Base de Données : installation des tables et mise à jour du fichier config.php
-     * @return string message d'échec ou de réussite.
-     */
     public function initialisationBDD(): string
     {
         // Vérifier si la base de données est vide
-        if ($this->testIfTableFilmsExists()) {
+        if ($this->testIfTableUtilisteursExists()) {
             return "La base de données semble déjà remplie.";
         } else {
-            // Télécharger le(s) fichier(s) sql d'initialisation dans la BDD
-            // Et effectuer les différentes migrations
             try {
                 $i = 0;
                 $migrationExistante = TRUE;
@@ -70,16 +61,13 @@ final class Database
         return "Une erreur inattendue s'est produite lors de l'initialisation de la base de données.";
     }
 
-    /**
-     * Vérifie si la table Films existe déjà dans la BDD
-     * @return bool
-     */
+  
 
     //  i have to edit the function by the table on my Database
 
-    private function testIfTableFilmsExists(): bool
+    private function testIfTableUtilisteursExists(): bool
     {
-        $existant = $this->DB->query('SHOW TABLES FROM ' . DB_NAME . ' like \'%films%\'')->fetch();
+        $existant = $this->DB->query('SHOW TABLES FROM ' . DB_NAME . ' like \'%utilisateurs%\'')->fetch();
 
         if ($existant !== false && $existant[0] == PREFIXE . "films") {
             return true;
@@ -95,19 +83,17 @@ final class Database
         $fconfig = fopen($this->config, 'w');
 
         $contenu = "<?php
-      // lors de la mise en open source, remplacer les infos concernant la base de données.
-      
+        
       define('DB_HOST', '" . DB_HOST . "');
       define('DB_NAME', '" . DB_NAME . "');
       define('DB_USER', '" . DB_USER . "');
       define('DB_PWD', '" . DB_PWD . "');
       define('PREFIXE', '" . PREFIXE . "');
       
-      // Si le nom de domaine ne pointe pas vers le dossier public, indiquer le chemin entre le nom de domaine et le dossier public.
+      // Si votre nom de domaine ne pointe pas vers le dossier public, indiquer le chemin entre le nom de domaine et le dossier public.
       // exemple: /mon-site/public/
       define('HOME_URL', '" . HOME_URL . "');
       
-      // Ne pas toucher :
       
       define('DB_INITIALIZED', TRUE);";
 
