@@ -17,7 +17,7 @@ include_once __DIR__ . '/Includes/header.php';
     <label for="passwordConfirm">Verifier le mot de passe :</label>
     <input type="password" name="passwordConfirm" id="passwordConfirm" required autocomplete="address-line1">
 
-    <input type="submit" name="signUp" class="bouton" id="signUp" value="Sign up">
+    <input type="submit" name="signUp" class="btn btn-info mt-3" id="signUp" value="Sign up">
   </fieldset>
 
   <!-- have to delete it  -->
@@ -29,3 +29,4 @@ include_once __DIR__ . '/Includes/header.php';
 
 <?php
 include_once __DIR__ . '/Includes/footer.php';
+?>
