@@ -23,10 +23,23 @@ fieldset {
   border-radius: 8px;
 }
 
+#fieldsetConnexion{
+  display: flex;
+  flex-direction: column
+}
+
 legend {
   font-size: 1.2em;
   font-weight: bold;
 }
+
+
+.btnInscription{
+  width: fit-content;
+}
+
+
+
 
 #pass1jourDate,
 #pass2joursDate,
@@ -34,6 +47,7 @@ legend {
 #pass2joursDateReduit {
   padding: 1rem;
 }
+
 input:hover,
 a:hover {
   background-color: #ffcccc;
