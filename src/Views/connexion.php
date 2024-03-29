@@ -23,11 +23,10 @@ include_once __DIR__ . '/Includes/header.php';
         <label for="email">Email :*</label>
 
         <input id="email" type="email" name="email" class="mb-3 mx-2" minlength="3" maxlength="80" placeholder="Enter your email" required>
-        <label for="password">password :*</label>
+        <label for="motDePasse">Mot de passe :*</label>
         <div>
-            <input id="password" type="password" name="password" class="mb-3 mx-2" minlength="7" placeholder="Enter your password" required>
-
-            <input type="submit" class="btnInscription btn btn-info" name="submit" value="Se connecter" class="mb-3 mx-2">
+            <input type="password" name="motDePasse" class="mb-3 mx-2" id="motDePasse" required>
+            <input type="submit" class="btnInscription btn btn-info" name="Se connecter" value="Se connecter" class="mb-3 mx-2">
         </div>
     </fieldset>
 </form>

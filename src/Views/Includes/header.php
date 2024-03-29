@@ -30,7 +30,7 @@
     <?php } else { ?>
       <a   href="connexion" class="btn btn-info">Connexion</a>
 
-        <img src="/assets/images/logo.png" class="logo" alt="Vercors Music Festival">
+      <a href="/"><img src="/assets/images/logo.png"  class="logo"  alt="Vercors Music Festival"></a>
 
       <a   href="admin" class="btn btn-info">Admin</a>
     <?php } ?>

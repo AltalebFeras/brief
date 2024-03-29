@@ -27,23 +27,48 @@ btnSuivant1.addEventListener("click", () => {
 // Fonction pour valider la partie 1
 // Fonction pour valider la partie 1
 function validerPartie1() {
-  // Ajoutez vos conditions de validation ici
+  let choixJour1 = document.getElementById("choixJour1");
+  let choixJour2 = document.getElementById("choixJour2");
+  let choixJour3 = document.getElementById("choixJour3");
+  let choixJour12 = document.getElementById("choixJour12");
+  let choixJour23 = document.getElementById("choixJour23");
+
+  let choixJour1reduit = document.getElementById("choixJour1reduit");
+  let choixJour2reduit = document.getElementById("choixJour2reduit");
+  let choixJour3reduit = document.getElementById("choixJour3reduit");
+  let choixJour12reduit = document.getElementById("choixJour12reduit");
+  let choixJour23reduit = document.getElementById("choixJour23reduit");
+
+  // Check checkboxes
+
+  // Add your validation conditions here
   let auMoinsUnPassCoche =
-    pass1jourCheckbox.checked ||
-    pass2joursCheckbox.checked ||
+    // pass1jourCheckbox.checked ||
+    // pass2joursCheckbox.checked ||
     pass3joursCheckbox.checked ||
-    pass1jourReduitCheckbox.checked ||
-    pass2joursReduitCheckbox.checked ||
-    pass3joursReduitCheckbox.checked;
+    // pass1jourReduitCheckbox.checked ||
+    // pass2joursReduitCheckbox.checked ||
+    pass3joursReduitCheckbox.checked ||
+    choixJour1.checked ||
+    choixJour2.checked ||
+    choixJour3.checked ||
+    choixJour12.checked ||
+    choixJour23.checked ||
+    choixJour1reduit.checked ||
+    choixJour2reduit.checked ||
+    choixJour3reduit.checked ||
+    choixJour12reduit.checked ||
+    choixJour23reduit.checked;
+
   let nombrePlacesValide =
     parseInt(document.getElementById("nombrePlaces").value, 10) >= 1;
 
-  // Si les conditions sont remplies, on efface l'alerte
+  // If the conditions are met, clear the alert
   if (auMoinsUnPassCoche && nombrePlacesValide) {
     alertOption.textContent = "";
   }
 
-  // Retourne true si la validation réussit, sinon false
+  // Return true if validation succeeds, otherwise false
   return auMoinsUnPassCoche && nombrePlacesValide;
 }
 
@@ -61,16 +86,14 @@ document.addEventListener("DOMContentLoaded", function () {
       fieldsetReservation.style.display = "none";
       fieldsetOptions.style.display = "none";
       fieldsetCoordonnees.style.display = "flex";
-    } else {
-      // Si la validation échoue, affichez une alerte et empêchez la transition
-      alert('Veuillez répondre à la question "Venez-vous avec des enfants ?"');
     }
   });
 
   // Fonction pour valider la partie 1
   function validerPartie2() {
     // Ajoutez vos conditions de validation ici
-    let reponseEnfants = radioEnfantsOui.checked || radioEnfantsNon.checked;
+    let reponseEnfants =
+      radioEnfantsOui.value === "Oui" || radioEnfantsNon.value === "Non";
     // Retourne true si la validation réussit, sinon false
     return reponseEnfants;
   }
@@ -169,9 +192,15 @@ function afficherMasquerTarifsReduits() {
   let tarifsNormauxSection = document.getElementById("tarifsNormaux");
 
   if (checkboxTarifReduit.checked) {
+    pass1jourCheckbox.checked = false;
+    pass2joursCheckbox.checked = false;
+    pass3joursCheckbox.checked = false;
     tarifsReduitsSection.style.display = "block";
     tarifsNormauxSection.style.display = "none";
   } else {
+    pass1jourReduitCheckbox.checked = false;
+    pass2joursReduitCheckbox.checked = false;
+    pass3joursReduitCheckbox.checked = false;
     tarifsReduitsSection.style.display = "none";
     tarifsNormauxSection.style.display = "block";
   }
@@ -362,3 +391,38 @@ function toggleRadio(radio) {
     });
   }
 }
+document
+  .getElementById("togglePassword")
+  .addEventListener("click", function () {
+    var motDePasseInput = document.getElementById("motDePasse");
+    var motDePasseVerifierInput = document.getElementById("motDePasseVerifier");
+    var togglePasswordSpan = document.getElementById("togglePassword");
+
+    if (motDePasseInput.type === "password") {
+      motDePasseInput.type = "text";
+      motDePasseVerifierInput.type = "text";
+      togglePasswordSpan.textContent = "Cacher le MDP";
+    } else {
+      motDePasseInput.type = "password";
+      motDePasseVerifierInput.type = "password";
+      togglePasswordSpan.textContent = "Voir le MDP";
+    }
+  });
+
+document
+  .getElementById("telephone")
+  .addEventListener("input", function (event) {
+    let input = event.target.value;
+    let formattedPhoneNumber = input.replace(/[^\d+]/g, ""); // Supprime tous les caractères non numériques
+    event.target.value = formattedPhoneNumber;
+  });
+
+  function enableCheckbox() {
+    var checkbox = document.getElementById("RGPD");
+    if (checkbox.disabled) {
+      checkbox.disabled = false;
+    }
+  }
+  
+  // Periodically check and enable the checkbox
+  setInterval(enableCheckbox, 1000); // Check every second (adjust as needed)

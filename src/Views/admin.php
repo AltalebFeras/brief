@@ -9,8 +9,8 @@ include_once __DIR__ . '/Includes/header.php';
     <fieldset>
         <h1>Administration</h1>
         
-        <label for="password">Code d'accès :</label>
-        <input type="password" id="password" name="password" required>
+        <label for="motDePasseAdmin">Code d'accès :</label>
+        <input type="password" id="motDePasseAdmin" name="motDePasseAdmin" required>
         <?php if ($erreur == "connexion") { ?>
             <div class="error">
                 Erreur de connexion.
