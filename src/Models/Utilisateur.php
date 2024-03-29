@@ -2,18 +2,13 @@
 
 namespace src\Models;
 
+use DateTime;
 use src\Services\Hydratation;
 
 class Utilisateur {
-    private $Id, $nom, $prenom, $telephone, $adresse, $email, $motDePasse, $RGPD, $role;
+    private $Id, $nom, $prenom, $email, $motDePasse, $telephone, $adresse,  $RGPD, $role;
 
     use Hydratation;
-
-    public function __set($nom, $value) {
-        if (property_exists($this, $nom)) {
-            $this->$nom = $value;
-        }
-    }
 
     public function getId(): int {
         return $this->Id;
@@ -64,11 +59,13 @@ class Utilisateur {
         $this->motDePasse = $motDePasse;
     }
 
-    public function getRGPD(): string {
+    public function getRGPD(): DateTime {
         return $this->RGPD;
     }
-    public function setRGPD(string $RGPD) {
+    public function setRGPD(DateTime $RGPD) {
         $this->RGPD = $RGPD;
+
+        return $this->RGPD=new DateTime();
     }
 
     public function getRole(): string {

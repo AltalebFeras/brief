@@ -5,7 +5,7 @@ namespace src\Models;
 use src\Services\Hydratation;
 
 class Reservation {
-    private $ReservationId, $NombreReservation, $PrixTotal, $UtilisateurId;
+    private $ReservationId, $NombreReservations, $PrixTotal, $UtilisateurId;
 
     use Hydratation;
 
@@ -17,11 +17,11 @@ class Reservation {
         $this->ReservationId = $ReservationId;
     }
 
-    public function getNombreReservation(): int {
-        return $this->NombreReservation;
+    public function getNombreReservations(): int {
+        return $this->NombreReservations;
     }
-    public function setNombreReservation(int $NombreReservation): void {
-        $this->NombreReservation = $NombreReservation;
+    public function setNombreReservations(int $NombreReservations): void {
+        $this->NombreReservations = $NombreReservations;
     }
 
     public function getPrixTotal(): int {

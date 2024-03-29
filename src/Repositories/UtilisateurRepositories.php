@@ -29,43 +29,9 @@ class UtilisateurRepositories
     return $statement->fetch();
   }
 
-  /**
-   * Un autre exemple d'une requête préparée, avec prepare et execute :
-   * Cette fois-ci on donne les paramètres tout de suite lors du execute, sous forme d'un tableau associatif.
-   */
-  public function getThoseFilmsByClassificationAge($Id_Classification): array
-  {
-    $sql = $this->concatenationRequete("WHERE " . PREFIXE . "films.ID_CLASSIFICATION_AGE_PUBLIC = :Id_Classification");
-
-    $statement = $this->DB->prepare($sql);
-
-    $statement->execute([':Id_Classification' => $Id_Classification]);
-
-    return $statement->fetchAll(PDO::FETCH_CLASS, Film::class);
-  }
-
-
-  // Construire la méthode getThoseFilmsByName() Et oui, parce qu'on peut avoir plusieurs films avec le même nom !
-  public function getThoseUtilisateurByName($NOM): array
-  {
-    $sql = $this->concatenationRequete("WHERE " . PREFIXE . "Utilisateur.NOM LIKE :NOM");
-
-    $statement = $this->DB->prepare($sql);
-
-    $statement->execute([':NOM' => "%" . $NOM . "%"]);
-
-    return $statement->fetchAll(PDO::FETCH_CLASS, Utilisateur::class);
-  }
-
-  /**
-   * Permet de créer un nouveau film. Retourne l'objet film avec son Id fraîchement créé par la BDD.
-   *
-   * @param Film $film
-   * @return Film
-   */
   public function CreateThisUtilisateur(Utilisateur $Utilisateur): Utilisateur
   {
-    $sql = "INSERT INTO " . PREFIXE . "Utilisateur (NOM, PRENOM, TELEPHONE, ADRESSE, MOTDEPASSE, ROLE, RGPD, EMAIL) VALUES (:nom, :prenom, :telephone, :adresse, :motdepasse, :role, :rgpd, :email);";
+    $sql = "INSERT INTO " . PREFIXE . "Utilisateur (nom, prenom, email, motDePasse, telephone, adresse, RGPD, role ) VALUES (:nom, :prenom,:email,:motdepasse, :telephone, :adresse, :rgpd, :role,  );";
     $statement = $this->DB->prepare($sql);
 
     $statement->execute([

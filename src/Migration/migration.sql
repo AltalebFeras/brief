@@ -1,122 +1,129 @@
-#------------------------------------------------------------
-#        Script MySQL.
-#------------------------------------------------------------
+CREATE TABLE mvf_nuitee
+(
+  nuiteeID   INTEGER     NOT NULL AUTO_INCREMENT,
+  nomNuitee  VARCHAR(60) NOT NULL,
+  prixNuitee INTEGER     NOT NULL,
+  PRIMARY KEY (nuiteeID)
+);
 
+ALTER TABLE mvf_nuitee
+  ADD CONSTRAINT UQ_nuiteeID UNIQUE (nuiteeID);
 
-#------------------------------------------------------------
-# Table: Utilisateur
-#------------------------------------------------------------
+ALTER TABLE mvf_nuitee
+  ADD CONSTRAINT UQ_nomNuitee UNIQUE (nomNuitee);
 
-CREATE TABLE mvf_utilisateur(
-        UTILISATEURID Int  Auto_increment  NOT NULL ,
-        NOM           Varchar (50) NOT NULL ,
-        PRENOM        Varchar (50) NOT NULL ,
-        TELEPHONE     Varchar (16) NOT NULL ,
-        ADRESSE       Varchar (100) NOT NULL ,
-        MOTDEPASSE    Varchar (300) NOT NULL ,
-        ROLE          Varchar (50) NOT NULL ,
-        RGPD          Date NOT NULL ,
-        EMAIL         Varchar (80) NOT NULL
-	,CONSTRAINT AK_mvf_utilisateur UNIQUE (EMAIL)
-	,CONSTRAINT PK_mvf_utilisateur PRIMARY KEY (UTILISATEURID)
-)ENGINE=InnoDB;
+CREATE TABLE mvf_options
+(
+  optionID    INTEGER     NOT NULL AUTO_INCREMENT,
+  nomOption   VARCHAR(60) NOT NULL,
+  stockOption INTEGER     NOT NULL,
+  prixOption  INTEGER     NOT NULL,
+  PRIMARY KEY (optionID)
+);
 
+ALTER TABLE mvf_options
+  ADD CONSTRAINT UQ_optionID UNIQUE (optionID);
 
-#------------------------------------------------------------
-# Table: Pass
-#------------------------------------------------------------
+ALTER TABLE mvf_options
+  ADD CONSTRAINT UQ_nomOption UNIQUE (nomOption);
 
-CREATE TABLE mvf_pass(
-        PASSID Int  Auto_increment  NOT NULL ,
-        PRIX   Integer NOT NULL ,
-        NOM    Varchar (60) NOT NULL
-	,CONSTRAINT AK_mvf_pass UNIQUE (NOM)
-	,CONSTRAINT PK_mvf_pass PRIMARY KEY (PASSID)
-)ENGINE=InnoDB;
+CREATE TABLE mvf_pass
+(
+  passID   INTEGER     NOT NULL AUTO_INCREMENT,
+  prixPass INTEGER     NOT NULL,
+  nomPass  VARCHAR(60) NOT NULL,
+  PRIMARY KEY (passID)
+);
 
+ALTER TABLE mvf_pass
+  ADD CONSTRAINT UQ_passID UNIQUE (passID);
 
-#------------------------------------------------------------
-# Table: Nuitee
-#------------------------------------------------------------
+ALTER TABLE mvf_pass
+  ADD CONSTRAINT UQ_nomPass UNIQUE (nomPass);
 
-CREATE TABLE mvf_nuitee(
-        NUITEEID Int  Auto_increment  NOT NULL ,
-        PRIX     Integer NOT NULL ,
-        NOM      Varchar (60)
-	,CONSTRAINT AK_mvf_nuitee UNIQUE (NOM)
-	,CONSTRAINT PK_mvf_nuitee PRIMARY KEY (NUITEEID)
-)ENGINE=InnoDB;
+CREATE TABLE mvf_reservation
+(
+  reservationID       INTEGER NOT NULL AUTO_INCREMENT,
+  nombre_reservations INTEGER NOT NULL,
+  prix_total          INTEGER NULL    ,
+  utilisateurID       INTEGER NOT NULL,
+  PRIMARY KEY (reservationID)
+);
 
+ALTER TABLE mvf_reservation
+  ADD CONSTRAINT UQ_reservationID UNIQUE (reservationID);
 
-#------------------------------------------------------------
-# Table: Option
-#------------------------------------------------------------
+CREATE TABLE mvf_reservation_nuitee
+(
+  jour          DATE    NULL    ,
+  reservationID INTEGER NOT NULL,
+  nuiteeID      INTEGER NOT NULL
+);
 
-CREATE TABLE mvf_option(
-        OPTIONID Int  Auto_increment  NOT NULL ,
-        STOCK    Int NOT NULL ,
-        PRIX     Integer NOT NULL ,
-        NOM      Varchar (60)
-	,CONSTRAINT AK_mvf_option UNIQUE (NOM)
-	,CONSTRAINT PK_mvf_option PRIMARY KEY (OPTIONID)
-)ENGINE=InnoDB;
+CREATE TABLE mvf_reservation_option
+(
+  reservationID INTEGER NOT NULL,
+  optionID      INTEGER NOT NULL
+);
 
+CREATE TABLE mvf_reservation_pass
+(
+  jour          DATE    NULL    ,
+  passID        INTEGER NOT NULL,
+  reservationID INTEGER NOT NULL
+);
 
-#------------------------------------------------------------
-# Table: Reservation
-#------------------------------------------------------------
+CREATE TABLE mvf_utilisateur
+(
+  utilisateurID INTEGER      NOT NULL AUTO_INCREMENT,
+  nom           VARCHAR(50)  NOT NULL,
+  prenom        VARCHAR(50)  NOT NULL,
+  email         VARCHAR(50)  NOT NULL,
+  motDePasse    VARCHAR(501) NOT NULL,
+  telephone     VARCHAR(50)  NOT NULL,
+  adresse       VARCHAR(150) NOT NULL,
+  RGPD          DATE         NOT NULL,
+  role          VARCHAR(60)  NULL    ,
+  PRIMARY KEY (utilisateurID)
+);
 
-CREATE TABLE mvf_reservation(
-        RESERVATIONID       Int  Auto_increment  NOT NULL ,
-        NOMBRE_RESERVATIONS Int NOT NULL ,
-        PRIX_TOTAL          Integer NOT NULL ,
-        UTILISATEURID       Int NOT NULL
-	,CONSTRAINT PK_mvf_reservation PRIMARY KEY (RESERVATIONID)
+ALTER TABLE mvf_utilisateur
+  ADD CONSTRAINT UQ_utilisateurID UNIQUE (utilisateurID);
 
-	,CONSTRAINT FK_mvf_reservation_mvf_utilisateur FOREIGN KEY (UTILISATEURID) REFERENCES mvf_utilisateur(UTILISATEURID)
-)ENGINE=InnoDB;
+ALTER TABLE mvf_utilisateur
+  ADD CONSTRAINT UQ_email UNIQUE (email);
 
+ALTER TABLE mvf_reservation
+  ADD CONSTRAINT FK_mvf_utilisateur_TO_mvf_reservation
+    FOREIGN KEY (utilisateurID)
+    REFERENCES mvf_utilisateur (utilisateurID);
 
-#------------------------------------------------------------
-# Table: Reservation_pass
-#------------------------------------------------------------
+ALTER TABLE mvf_reservation_pass
+  ADD CONSTRAINT FK_mvf_pass_TO_mvf_reservation_pass
+    FOREIGN KEY (passID)
+    REFERENCES mvf_pass (passID);
 
-CREATE TABLE mvf_relation_reservation_pass(
-        PASSID        Int NOT NULL ,
-        RESERVATIONID Int NOT NULL ,
-        DATE          Date NOT NULL
-	,CONSTRAINT PK_RESERVATION_PASS PRIMARY KEY (PASSID,RESERVATIONID)
+ALTER TABLE mvf_reservation_pass
+  ADD CONSTRAINT FK_mvf_reservation_TO_mvf_reservation_pass
+    FOREIGN KEY (reservationID)
+    REFERENCES mvf_reservation (reservationID);
 
-	,CONSTRAINT FK_RESERVATION_PASS_mvf_pass FOREIGN KEY (PASSID) REFERENCES mvf_pass(PASSID)
-	,CONSTRAINT FK_RESERVATION_PASS_mvf_reservation0 FOREIGN KEY (RESERVATIONID) REFERENCES mvf_reservation(RESERVATIONID)
-)ENGINE=InnoDB;
+ALTER TABLE mvf_reservation_nuitee
+  ADD CONSTRAINT FK_mvf_reservation_TO_mvf_reservation_nuitee
+    FOREIGN KEY (reservationID)
+    REFERENCES mvf_reservation (reservationID);
 
+ALTER TABLE mvf_reservation_nuitee
+  ADD CONSTRAINT FK_mvf_nuitee_TO_mvf_reservation_nuitee
+    FOREIGN KEY (nuiteeID)
+    REFERENCES mvf_nuitee (nuiteeID);
 
-#------------------------------------------------------------
-# Table: Reservation_nuitee
-#------------------------------------------------------------
+ALTER TABLE mvf_reservation_option
+  ADD CONSTRAINT FK_mvf_reservation_TO_mvf_reservation_option
+    FOREIGN KEY (reservationID)
+    REFERENCES mvf_reservation (reservationID);
 
-CREATE TABLE mvf_relation_reservation_nuitee(
-        NUITEEID      Int NOT NULL ,
-        RESERVATIONID Int NOT NULL ,
-        DATE          Date NOT NULL
-	,CONSTRAINT PK_RESERVATION_NUITEE PRIMARY KEY (NUITEEID,RESERVATIONID)
-
-	,CONSTRAINT FK_RESERVATION_NUITEE_mvf_nuitee FOREIGN KEY (NUITEEID) REFERENCES mvf_nuitee(NUITEEID)
-	,CONSTRAINT FK_RESERVATION_NUITEE_mvf_reservation0 FOREIGN KEY (RESERVATIONID) REFERENCES mvf_reservation(RESERVATIONID)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: Reservation_option
-#------------------------------------------------------------
-
-CREATE TABLE mvf_relation_reservation_option(
-        OPTIONID      Int NOT NULL ,
-        RESERVATIONID Int NOT NULL
-	,CONSTRAINT PK_RESERVATION_OPTION PRIMARY KEY (OPTIONID,RESERVATIONID)
-
-	,CONSTRAINT FK_RESERVATION_OPTION_mvf_option FOREIGN KEY (OPTIONID) REFERENCES mvf_option(OPTIONID)
-	,CONSTRAINT FK_RESERVATION_OPTION_mvf_reservation0 FOREIGN KEY (RESERVATIONID) REFERENCES mvf_reservation(RESERVATIONID)
-)ENGINE=InnoDB;
-
+ALTER TABLE mvf_reservation_option
+  ADD CONSTRAINT FK_mvf_options_TO_mvf_reservation_option
+    FOREIGN KEY (optionID)
+    REFERENCES mvf_options (optionID);

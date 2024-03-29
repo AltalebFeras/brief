@@ -39,6 +39,9 @@ final class Database
                 $migrationExistante = TRUE;
                 while ($migrationExistante === TRUE) {
                     $migration = __DIR__ . "/../Migrations/migration$i.sql";
+
+                    // a verifier le fonctionnement de la fonction file_exists
+                    // $migration = __DIR__ . "/../src/Migration/migration.sql" . $i;
                     if (file_exists($migration)) {
                         $sql = file_get_contents($migration);
                         $this->DB->query($sql);
@@ -67,9 +70,9 @@ final class Database
 
     private function testIfTableUtilisteursExists(): bool
     {
-        $existant = $this->DB->query('SHOW TABLES FROM ' . DB_NAME . ' like \'%utilisateurs%\'')->fetch();
+        $existant = $this->DB->query('SHOW TABLES FROM ' . DB_NAME . ' like \'%utilisateur%\'')->fetch();
 
-        if ($existant !== false && $existant[0] == PREFIXE . "films") {
+        if ($existant !== false && $existant[0] == PREFIXE . "mvf_utilisateur") {
             return true;
         } else {
             return false;
