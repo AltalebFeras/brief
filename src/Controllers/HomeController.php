@@ -19,17 +19,7 @@ class HomeController
 
     $this->render("Accueil", ["erreur" => $erreur]);
   }
-  public function newReservation(): void
-  {
-    if (isset($_GET['erreur'])) {
-      $erreur = htmlspecialchars($_GET['erreur']);
-    } else {
-      $erreur = '';
-    }
-
-    $this->render("newReservation", ["erreur" => $erreur]);
-  }
-  
+ 
 
   public function indexAdmin(): void
   {
@@ -44,9 +34,9 @@ class HomeController
     $this->render("connexion", ["erreur" => $erreur]);
 }
 
-  public function authAdmin(string $password): void
+  public function authAdmin(string $motDePasseAdmin): void
   {
-    if ($password === 'admin') {
+    if ($motDePasseAdmin === 'admin') {
       $_SESSION['connecté'] = TRUE;
       header('location: ' . HOME_URL . 'dashboard');
       die();
@@ -55,6 +45,8 @@ class HomeController
     }
   }
 
+
+  // will change the password for user to motDePasse
   public function authUser(string $password): void
   {
     if ($password === 'admin') {

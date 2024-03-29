@@ -22,13 +22,6 @@ switch ($route) {
     }
     break;
 
-  case HOME_URL . 'newReservation':
-
-    $HomeController->newReservation();
-
-
-
-    break;
 
   case HOME_URL . 'admin':
     if (isset($_SESSION['connecté'])) {
