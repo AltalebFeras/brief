@@ -18,7 +18,7 @@ include_once __DIR__ . '/Includes/header.php';
       <label for="pass1jour">Pass 1 jour : 40€</label>
 
       <!-- Si case cochée, afficher le choix du jour -->
-      <section id="pass1jourDate">
+      <section id="pass1jourDate" style="display: none;">
         <div>
           <input type="checkbox" name="choixJour" id="choixJour1" value="choixJour1" aria-required="true" onchange="toggleCheck(this) , toggleRadio(this)" />
           <label for="choixJour1">Pass pour la journée du 01/07</label>
@@ -35,7 +35,7 @@ include_once __DIR__ . '/Includes/header.php';
       <label for="pass2jours">Pass 2 jours : 70€</label>
 
       <!-- Si case cochée, afficher le choix des jours -->
-      <section id="pass2joursDate">
+      <section id="pass2joursDate" style="display: none;">
         <div>
           <input type="checkbox" name="choixJour2" id="choixJour12" value="choixjour12" aria-required="true" onchange="toggleCheck(this) , toggleRadio(this)" />
           <label for="choixJour12">Pass pour deux journées du 01/07 au 02/07</label>
@@ -51,11 +51,11 @@ include_once __DIR__ . '/Includes/header.php';
     </div>
 
     <!-- tarifs réduits : à n'afficher que si tarif réduit est sélectionné -->
-    <section class="tarifsReduits" id="tarifsReduits">
+    <section class="tarifsReduits" id="tarifsReduits" style="display: none;">
       <input type="radio" name="choixPassReduit" id="pass1jourreduit" value="pass1jourreduit" onclick="choixDate1jourReduit()">
       <label for="pass1jourreduit">Pass 1 jour : 25€</label>
 
-      <section id="pass1jourDateReduit">
+      <section id="pass1jourDateReduit" style="display: none;">
         <div>
           <input type="checkbox" name="choixJourReduit" id="choixJour1reduit" value="choixJour1reduit" aria-required="true" onchange="toggleCheck(this) , toggleRadio(this)" />
           <label for="choixJour1reduit">Pass pour la journée du 01/07</label>
@@ -74,7 +74,7 @@ include_once __DIR__ . '/Includes/header.php';
       <input type="radio" name="choixPassReduit" id="pass2joursreduit" value="pass2joursreduit" onclick="choixDate2joursReduit()">
       <label for="pass2joursreduit">Pass 2 jours : 50€</label>
 
-      <section id="pass2joursDateReduit">
+      <section id="pass2joursDateReduit" style="display: none;">
         <div>
           <input type="checkbox" name="choixJour2Reduit" id="choixJour12reduit" value="choixJour12reduit" aria-required="true" onchange="toggleCheck(this) , toggleRadio(this)" />
           <label for="choixJour12reduit">Pass pour deux journées du 01/07 au 02/07</label>
@@ -97,7 +97,7 @@ include_once __DIR__ . '/Includes/header.php';
     </div>
 
   </fieldset>
-  <fieldset id="options">
+  <fieldset id="options">checkbox
     <h3>Réserver un emplacement de tente : </h3>
     <input type="checkbox" id="tenteNuit1" name="tenteNuit1" class="tenteNuit" value="tenteNuit1" onchange="cocherTente3nuits()">
     <label for="tenteNuit1">Pour la nuit du 01/07 (5€)</label><br>
@@ -123,10 +123,10 @@ include_once __DIR__ . '/Includes/header.php';
       <!-- <option name="enfants" value="Non" id="enfantsNon">Non</option>
       <option name="enfants" value="Oui" id="enfantsOui">Oui</option> -->
       <option name="enfants" value="Non" id="enfantsNon" onchange="afficherMasquerCasques()">Non</option>
-      <option name="enfants" value="Oui" id="enfantsOui" onchange="afficherMasquerCasques()">Oui</option>
+      <option name="enfants" value="Oui" id="enfantsOui" onchange="afficherMasquerCasques()" >Oui</option>
     </select>
     <!-- Si oui, afficher : -->
-    <section id="casquesEnfants">
+    <section id="casquesEnfants" style="display: none;">
       <h4>Voulez-vous louer un casque antibruit pour enfants* (2€ / casque) ?</h4>
       <label for="nombreCasquesEnfants">Nombre de casques souhaités :</label>
       <input type="number" name="nombreCasquesEnfants" id="nombreCasquesEnfants" min="0" max="5">
@@ -154,22 +154,10 @@ include_once __DIR__ . '/Includes/header.php';
     <input type="text" name="prenom" id="prenom" required autocomplete="given-name">
     <label for="email">Email :</label>
     <input type="email" name="email" id="email" required autocomplete="email">
-
-    <label for="motDePasse">Mot de passe :</label>
-    <input type="password" name="motDePasse" id="motDePasse" required>
-    <label for="motDePasseVerifier">Verifier le mot de passe :</label>
-    <input type="password" name="motDePasseVerifier" id="motDePasseVerifier">
-    <span class="password-toggle fw-bold mb-3" id="togglePassword">Voir le MDP</span>
-
-
     <label for="telephone">Téléphone :</label>
     <input type="text" name="telephone" id="telephone" required autocomplete="tel">
     <label for="adressePostale">Adresse Postale :</label>
     <input type="text" name="adressePostale" id="adressePostale" required autocomplete="address-line1">
-    <div class="d-flex flex-row align-items-baseline my-2">
-      <input type="checkbox" class="me-2" name="RGPD" id="RGPD" enababled>
-      <label for="RGPD">Veuillez accepter les RGPD </label>
-    </div>
     <div class="d-flex justify-content-between">
       <!-- <p class="btn btn-warning" id="btnPrecedent2">Précédent</p> -->
       <input class="btn btn-warning" id="btnPrecedent2" value="Précédent">
